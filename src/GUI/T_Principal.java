@@ -6,6 +6,7 @@
 package GUI;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -67,6 +68,11 @@ public class T_Principal extends javax.swing.JFrame {
         jmisair.setMnemonic('s');
         jmisair.setText("Sair");
         jmisair.setToolTipText("Sair");
+        jmisair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmisairActionPerformed(evt);
+            }
+        });
         jmcadastrar.add(jmisair);
 
         jMenuBar1.add(jmcadastrar);
@@ -96,6 +102,13 @@ public class T_Principal extends javax.swing.JFrame {
     private void jmiprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiprodutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmiprodutoActionPerformed
+
+    private void jmisairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmisairActionPerformed
+        int recebe = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Sair da Aplicação", JOptionPane.YES_NO_OPTION);
+        if(recebe == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jmisairActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,8 @@
 package GUI;
 
 import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
+import model.Categorias;
 
 /**
  *
@@ -148,6 +150,11 @@ public class Cliente extends javax.swing.JDialog {
         cbestado.setBackground(java.awt.Color.lightGray);
         cbestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MG", "BA", "RS", "AL" }));
         cbestado.setBorder(null);
+        cbestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbestadoActionPerformed(evt);
+            }
+        });
 
         cbcidade.setBackground(java.awt.Color.lightGray);
         cbcidade.setBorder(null);
@@ -327,6 +334,61 @@ public class Cliente extends javax.swing.JDialog {
     private void btultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btultimoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btultimoActionPerformed
+
+    private void cbestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbestadoActionPerformed
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        Categorias c1 = new Categorias();
+        Categorias c2 = new Categorias();
+        Categorias c3 = new Categorias();
+        
+        switch(cbestado.getSelectedIndex()){
+            case 0:
+                c1.setId(1);
+                c1.setDescricao("Juiz de Fora");
+                modelo.addElement(c1);
+                c2.setId(2);
+                c2.setDescricao("Matias Barbosa");
+                modelo.addElement(c2);
+                c3.setId(3);
+                c3.setDescricao("Belo Horizonte");
+                modelo.addElement(c3);
+                break;
+            case 1:
+                c1.setId(1);
+                c1.setDescricao("Salvador");
+                modelo.addElement(c1);
+                c2.setId(2);
+                c2.setDescricao("Porto Seguro");
+                modelo.addElement(c2);
+                c3.setId(3);
+                c3.setDescricao("Ilhéus");
+                modelo.addElement(c3);
+                break;
+            case 2:
+                c1.setId(1);
+                c1.setDescricao("Porto Alegre");
+                modelo.addElement(c1);
+                c2.setId(2);
+                c2.setDescricao("Gramado");
+                modelo.addElement(c2);
+                c3.setId(3);
+                c3.setDescricao("Canoas");
+                modelo.addElement(c3);
+                break;
+            case 3:
+                c1.setId(1);
+                c1.setDescricao("Maceió");
+                modelo.addElement(c1);
+                c2.setId(2);
+                c2.setDescricao("Penedo");
+                modelo.addElement(c2);
+                c3.setId(3);
+                c3.setDescricao("Atalaia");
+                modelo.addElement(c3);
+                break;
+        }
+        cbcidade.setModel(modelo);
+    }//GEN-LAST:event_cbestadoActionPerformed
 
     /**
      * @param args the command line arguments

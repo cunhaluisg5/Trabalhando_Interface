@@ -6,6 +6,7 @@
 package GUI;
 
 import dao.ProdutoDao;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Produtos;
 

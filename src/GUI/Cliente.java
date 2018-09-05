@@ -5,10 +5,13 @@
  */
 package GUI;
 
+import dao.ClienteDao;
 import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import model.Categorias;
+import model.Clientes;
+import model.Produtos;
 
 /**
  *
@@ -16,9 +19,8 @@ import model.Categorias;
  */
 public class Cliente extends javax.swing.JDialog {
 
-    /**
-     * Creates new form Cliente
-     */
+    ClienteDao dao;
+    
     public Cliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -93,6 +95,11 @@ public class Cliente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfcelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfcelularActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -248,6 +255,11 @@ public class Cliente extends javax.swing.JDialog {
         btsalvar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.gif"))); // NOI18N
         btsalvar.setText("Salvar");
+        btsalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btsalvarActionPerformed(evt);
+            }
+        });
 
         btalterar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btalterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualiza.jpg"))); // NOI18N
@@ -424,6 +436,32 @@ public class Cliente extends javax.swing.JDialog {
         cbcidade.removeAllItems();
         tfnome.requestFocus();
     }//GEN-LAST:event_btnovoActionPerformed
+
+    private void btsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalvarActionPerformed
+        try{
+            Clientes obj = new Clientes();
+            obj.setNome(tfnome.getText());
+            obj.setEmail(tfemail.getText());
+            obj.setTelefone(tftelefone.getText());       
+            obj.setCelular(tfcelular.getText());
+            obj.setRua(tfrua.getText());
+            obj.setNumero(Integer.parseInt(tfnumero.getText()));
+            obj.setComplemento(tfcomplemento.getText());
+            obj.setBairro(tfbairro.getText());
+            obj.setCep(tfcep.getText());
+            obj.setEstado(cbestado.getSelectedItem().toString());
+            obj.setCidade(cbcidade.getSelectedItem().toString());
+            dao = new ClienteDao();
+            dao.cadastrarCliente(obj);
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Não foi possível savar o cliente!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btsalvarActionPerformed
+
+    private void tfcelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfcelularActionPerformed
 
     /**
      * @param args the command line arguments

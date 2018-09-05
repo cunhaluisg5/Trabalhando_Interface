@@ -10,21 +10,23 @@ package model;
  * @author Luis
  */
 public class Clientes {
-    private Long codigo;
+    private int codigo;
     private String nome;
     private String email;
-    private int telefone;
-    private int celular;
+    private String telefone;
+    private String celular;
     private String rua;
     private int numero;
     private String complemento;
     private String bairro;
     private String cep;
+    private String estado;
+    private String cidade;
 
     public Clientes() {
     }
 
-    public Clientes(Long codigo, String nome, String email, int telefone, int celular, String rua, int numero, String complemento, String bairro, String cep) {
+    public Clientes(int codigo, String nome, String email, String telefone, String celular, String rua, int numero, String complemento, String bairro, String cep, String estado, String cidade) {
         this.codigo = codigo;
         this.nome = nome;
         this.email = email;
@@ -35,13 +37,15 @@ public class Clientes {
         this.complemento = complemento;
         this.bairro = bairro;
         this.cep = cep;
+        this.estado = estado;
+        this.cidade = cidade;
     }
 
-    public Long getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(Long codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -61,19 +65,19 @@ public class Clientes {
         this.email = email;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public int getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
@@ -117,8 +121,24 @@ public class Clientes {
         this.cep = cep;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
     @Override
     public String toString() {
-        return "Clientes{" + "codigo=" + codigo + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", celular=" + celular + ", rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cep=" + cep + '}';
+        return "Clientes{" + "codigo=" + codigo + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", celular=" + celular + ", rua=" + rua + ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cep=" + cep + ", estado=" + estado + ", cidade=" + cidade + '}';
     }
 }

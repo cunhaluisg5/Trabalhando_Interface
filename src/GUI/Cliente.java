@@ -7,6 +7,7 @@ package GUI;
 
 import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import model.Categorias;
 
 /**
@@ -265,6 +266,11 @@ public class Cliente extends javax.swing.JDialog {
 
         btsair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/sair.gif"))); // NOI18N
         btsair.setText("Sair");
+        btsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btsairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -389,6 +395,13 @@ public class Cliente extends javax.swing.JDialog {
         }
         cbcidade.setModel(modelo);
     }//GEN-LAST:event_cbestadoActionPerformed
+
+    private void btsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsairActionPerformed
+        int recebe =  JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Sair", JOptionPane.YES_NO_OPTION);
+        if(recebe == JOptionPane.YES_OPTION){
+            this.dispose();
+        }
+    }//GEN-LAST:event_btsairActionPerformed
 
     /**
      * @param args the command line arguments

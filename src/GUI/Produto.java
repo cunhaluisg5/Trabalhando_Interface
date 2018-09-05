@@ -102,6 +102,11 @@ public class Produto extends javax.swing.JDialog {
 
         btnovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/novo.jpg"))); // NOI18N
         btnovo.setText("Novo");
+        btnovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnovoActionPerformed(evt);
+            }
+        });
 
         btsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.gif"))); // NOI18N
         btsalvar.setText("Salvar");
@@ -221,6 +226,14 @@ public class Produto extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar o produto!", "Produto não Cadastrado", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btsalvarActionPerformed
+
+    private void btnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnovoActionPerformed
+        tfcodigo.setText("");
+        tfnome.setText("");
+        tfdescricao.setText("");
+        tfpreco.setText("");
+        tfnome.requestFocus();
+    }//GEN-LAST:event_btnovoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class ConectionFactory {
     public Connection Conecta(){
         try{
-            return DriverManager.getConnection("jdbc:mysql://locallhost/academia", "root", "");
+            return DriverManager.getConnection("jdbc:mysql://localhost/academia", "root", "");
         }catch(SQLException ex){
             throw new RuntimeException(ex);
         }

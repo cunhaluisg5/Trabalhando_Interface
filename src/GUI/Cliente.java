@@ -68,6 +68,7 @@ public class Cliente extends javax.swing.JDialog {
         jPanel1.setBackground(java.awt.Color.lightGray);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do CLiente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
+        tfcodigo.setEditable(false);
         tfcodigo.setBackground(java.awt.Color.lightGray);
         tfcodigo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Código", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
@@ -75,10 +76,10 @@ public class Cliente extends javax.swing.JDialog {
         tfnome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         tfemail.setBackground(java.awt.Color.lightGray);
-        tfemail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        tfemail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         tftelefone.setBackground(java.awt.Color.lightGray);
-        tftelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Celular", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        tftelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Telefone", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
         try {
             tftelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
@@ -238,6 +239,11 @@ public class Cliente extends javax.swing.JDialog {
         btnovo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/novo.jpg"))); // NOI18N
         btnovo.setText("Novo");
+        btnovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnovoActionPerformed(evt);
+            }
+        });
 
         btsalvar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.gif"))); // NOI18N
@@ -402,6 +408,22 @@ public class Cliente extends javax.swing.JDialog {
             this.dispose();
         }
     }//GEN-LAST:event_btsairActionPerformed
+
+    private void btnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnovoActionPerformed
+        tfcodigo.setText("");
+        tfnome.setText("");
+        tfemail.setText("");
+        tftelefone.setValue("");
+        tfcelular.setValue("");
+        tfrua.setText("");
+        tfnumero.setText("");
+        tfcomplemento.setText("");
+        tfbairro.setText("");
+        tfcep.setValue("");
+        cbestado.setSelectedIndex(0);
+        cbcidade.removeAllItems();
+        tfnome.requestFocus();
+    }//GEN-LAST:event_btnovoActionPerformed
 
     /**
      * @param args the command line arguments

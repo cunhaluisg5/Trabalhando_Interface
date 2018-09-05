@@ -151,6 +151,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="tfcodigo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
             </Property>
@@ -184,7 +185,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Nome">
+                <TitledBorder title="Email">
                   <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
@@ -198,7 +199,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Celular">
+                <TitledBorder title="Telefone">
                   <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
                 </TitledBorder>
               </Border>
@@ -490,6 +491,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Novo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnovoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btsalvar">
       <Properties>

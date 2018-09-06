@@ -6,8 +6,10 @@
 package GUI;
 
 import dao.ProdutoDao;
-import java.sql.SQLException;
+import java.awt.HeadlessException;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Produtos;
 
 /**
@@ -54,6 +56,11 @@ public class Produto extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Produto");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         lbcabecalho.setBackground(new java.awt.Color(0, 102, 102));
         lbcabecalho.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -235,6 +242,29 @@ public class Produto extends javax.swing.JDialog {
         tfpreco.setText("");
         tfnome.requestFocus();
     }//GEN-LAST:event_btnovoActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        listar();
+    }//GEN-LAST:event_formWindowActivated
+
+    public void listar(){
+        try{
+            dao = new ProdutoDao();
+            List<Produtos> lista = dao.listarProdutos();
+            DefaultTableModel modelo = (DefaultTableModel) tbinfo.getModel();
+            modelo.setNumRows(0);
+            for(Produtos p : lista){
+                modelo.addRow(new Object[]{
+                    p.getId(),
+                    p.getNome(),
+                    p.getDescricao(),
+                    p.getPreco()
+                });
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Não foi possível listar os produtos!");
+        }
+    }
 
     /**
      * @param args the command line arguments

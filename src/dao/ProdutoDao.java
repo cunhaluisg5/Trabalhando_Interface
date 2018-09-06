@@ -60,4 +60,16 @@ public class ProdutoDao {
             throw new RuntimeException(erro);
         }
     }
+    
+    public void excluirProduto(Produtos obj){
+        try{
+            String sql = "delete from produto where pro_id = ?";
+            PreparedStatement stmt = conecta.prepareStatement(sql);
+            stmt.setInt(1, obj.getId());
+            stmt.execute();
+            stmt.close();
+        }catch(SQLException erro){
+            throw new RuntimeException(erro);
+        }
+    }
 }

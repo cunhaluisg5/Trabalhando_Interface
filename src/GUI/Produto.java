@@ -133,6 +133,11 @@ public class Produto extends javax.swing.JDialog {
         btexcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/DEL.jpg"))); // NOI18N
         btexcluir.setText("Excluir");
         btexcluir.setEnabled(false);
+        btexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btexcluirActionPerformed(evt);
+            }
+        });
 
         bteditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/edit.png"))); // NOI18N
         bteditar.setText("Editar");
@@ -263,6 +268,18 @@ public class Produto extends javax.swing.JDialog {
         tfdescricao.setText(tbinfo.getValueAt(tbinfo.getSelectedRow(), 2).toString());
         tfpreco.setText(tbinfo.getValueAt(tbinfo.getSelectedRow(), 3).toString());
     }//GEN-LAST:event_tbinfoMouseClicked
+
+    private void btexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btexcluirActionPerformed
+        try{
+            Produtos produto = new Produtos();
+            produto.setId(Integer.parseInt(tfcodigo.getText()));
+            dao = new ProdutoDao();
+            dao.excluirProduto(produto);
+            JOptionPane.showMessageDialog(null, "Produto excluído com sucesso!");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao excluir produto!");
+        }
+    }//GEN-LAST:event_btexcluirActionPerformed
 
     public void listar(){
         try{

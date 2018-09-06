@@ -100,6 +100,11 @@ public class Produto extends javax.swing.JDialog {
             }
         });
         tbinfo.getTableHeader().setReorderingAllowed(false);
+        tbinfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbinfoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbinfo);
         if (tbinfo.getColumnModel().getColumnCount() > 0) {
             tbinfo.getColumnModel().getColumn(0).setResizable(false);
@@ -118,6 +123,7 @@ public class Produto extends javax.swing.JDialog {
 
         btsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.gif"))); // NOI18N
         btsalvar.setText("Salvar");
+        btsalvar.setEnabled(false);
         btsalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btsalvarActionPerformed(evt);
@@ -126,9 +132,11 @@ public class Produto extends javax.swing.JDialog {
 
         btexcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/DEL.jpg"))); // NOI18N
         btexcluir.setText("Excluir");
+        btexcluir.setEnabled(false);
 
         bteditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/edit.png"))); // NOI18N
         bteditar.setText("Editar");
+        bteditar.setEnabled(false);
 
         btpesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Buscar.jpg"))); // NOI18N
         btpesquisar.setText("Pesquisar");
@@ -236,16 +244,25 @@ public class Produto extends javax.swing.JDialog {
     }//GEN-LAST:event_btsalvarActionPerformed
 
     private void btnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnovoActionPerformed
-        tfcodigo.setText("");
         tfnome.setText("");
         tfdescricao.setText("");
         tfpreco.setText("");
         tfnome.requestFocus();
+        bteditar.setEnabled(true);
+        btexcluir.setEnabled(true);
+        btsalvar.setEnabled(true);
     }//GEN-LAST:event_btnovoActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         listar();
     }//GEN-LAST:event_formWindowActivated
+
+    private void tbinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbinfoMouseClicked
+        tfcodigo.setText(tbinfo.getValueAt(tbinfo.getSelectedRow(), 0).toString());
+        tfnome.setText(tbinfo.getValueAt(tbinfo.getSelectedRow(), 1).toString());
+        tfdescricao.setText(tbinfo.getValueAt(tbinfo.getSelectedRow(), 2).toString());
+        tfpreco.setText(tbinfo.getValueAt(tbinfo.getSelectedRow(), 3).toString());
+    }//GEN-LAST:event_tbinfoMouseClicked
 
     public void listar(){
         try{
